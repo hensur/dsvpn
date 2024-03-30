@@ -28,7 +28,7 @@
 #endif
 
 #ifndef XOODOO_ROUNDS
-#define XOODOO_ROUNDS 12
+#define XOODOO_ROUNDS 3
 #endif
 
 static inline void mem_cpy(unsigned char *dst, const unsigned char *src, size_t n)
