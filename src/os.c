@@ -443,7 +443,7 @@ Cmds firewall_rules_cmds(int is_server)
             *set_cmds[] =
                 { "sysctl net.ipv4.ip_forward=1",
                   "ip addr add $LOCAL_TUN_IP peer $REMOTE_TUN_IP dev $IF_NAME",
-                  "ip -6 addr add $LOCAL_TUN_IP6 peer $REMOTE_TUN_IP6/96 dev $IF_NAME",
+                  "ip -6 addr add 2a0c:b641:17d:fd01::1 peer 2a0c:b641:17d:fd01::2/96 dev $IF_NAME",
                   "ip link set dev $IF_NAME up",
                   "iptables -t raw -I PREROUTING ! -i $IF_NAME -d $LOCAL_TUN_IP -m addrtype ! "
                   "--src-type LOCAL -j DROP",
@@ -504,7 +504,7 @@ Cmds firewall_rules_cmds(int is_server)
                   "iptables -t raw -I PREROUTING ! -i $IF_NAME -d $LOCAL_TUN_IP -m addrtype ! "
                   "--src-type LOCAL -j DROP",
                   "ip addr add $LOCAL_TUN_IP peer $REMOTE_TUN_IP dev $IF_NAME",
-                  "ip -6 addr add $LOCAL_TUN_IP6 peer $REMOTE_TUN_IP6/96 dev $IF_NAME",
+                  "ip -6 addr add 2a0c:b641:17d:fd01::2 peer 2a0c:b641:17d:fd01::1/96 dev $IF_NAME",
 #ifndef NO_DEFAULT_ROUTES
                   "ip route add default dev $IF_NAME table 42069",
                   "ip -6 route add default dev $IF_NAME table 42069",
